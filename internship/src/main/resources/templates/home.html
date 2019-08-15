@@ -1,7 +1,9 @@
 <html>
   <title>Summer Short Internship 2019</title>
   <script type="text/javascript">
-  // TODO ボタンを制御するためのJSコードを作成してください。
+    function trans(){
+        location.href="/create";
+    }
   </script>
   <body>
     <h1>
@@ -15,11 +17,13 @@
         <th bgcolor="#EE0000" width="150"><font color="#FFFFFF">Title</font></th>
         <th bgcolor="#EE0000" width="200"><font color="#FFFFFF">Description</font></th>
         </tr>
-        <tr th:each="todo:${todos}">
-          <!-- TODO データを出力するためのコードを作成してください。 -->
+        <tr th:each="todo:${todos}" th:object="${todo}">
+         <td th:text="*{id}"></td>
+         <td th:text="*{title}"></td>
+         <td th:text="*{description}"></td>
         </tr>
     </table>
     <br>
-    <button id="btn" value="Click">Go to the form</button>
+    <button id="btn" value="Click" onClick="trans();">Go to the form</button>
   </body>
 </html>
